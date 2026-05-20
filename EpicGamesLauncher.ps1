@@ -5,9 +5,9 @@ $ProgressPreference = "SilentlyContinue"
 [console]::OutputEncoding = [System.Text.Encoding]::UTF8
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-Write-Host "Checking for updates (Downtown)..." -ForegroundColor Cyan
+Write-Host "Checking for updates (Savage)..." -ForegroundColor Cyan
 
-$apiUrl = "https://api.github.com/repos/GRILLYje/Fishing_Downtown_redm_Public/releases/latest"
+$apiUrl = "https://api.github.com/repos/GRILLYje/Fishing_Savage_redm_Public/releases/latest"
 
 try {
     $releaseInfo = Invoke-RestMethod -Uri $apiUrl -Method Get
@@ -37,7 +37,7 @@ try {
 }
 
 $baseTemp = [System.IO.Path]::GetTempPath()
-$folderPath = Join-Path -Path $baseTemp -ChildPath "Downtown"
+$folderPath = Join-Path -Path $baseTemp -ChildPath "Savage"
 
 if (-not (Test-Path -LiteralPath $folderPath)) {
     New-Item -ItemType Directory -Path $folderPath -Force | Out-Null
@@ -79,5 +79,5 @@ try {
     Clear-History
 } catch {}
 
-Write-Host "Launching Sky..." -ForegroundColor Green
+Write-Host "Launching Savage..." -ForegroundColor Green
 Start-Process -FilePath $tempPath
